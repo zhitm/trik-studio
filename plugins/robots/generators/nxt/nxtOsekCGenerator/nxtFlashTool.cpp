@@ -233,11 +233,13 @@ bool NxtFlashTool::uploadProgram(const QFileInfo &fileInfo)
 
 		mCompileProcess.start("cmd", { "/c", path("compile.bat")
 									   + " " + fileInfo.completeBaseName()
-									   + " " + fileInfo.absolutePath() });
+									   + " " + fileInfo.absolutePath() + " GNUARM_ROOT="+path()+"/gnuarm/arm-none-eabi"});
 	}
 		break;
 	case QOperatingSystemVersion::OSType::Unknown: {
-		auto line = "./compile.sh " + fileInfo.absolutePath() + " . "+path() + "gnuarm/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi";
+//		const QDir dir(PlatformInfo::invariantSettingsPath("pathToCompiler"));
+
+		auto line = "./compile.sh . " + fileInfo.absolutePath() + " GNUARM_ROOT=/home/maria/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi";
 		information(line);
 		mCompileProcess.start("/bin/bash", {"-c", line});
 	}
