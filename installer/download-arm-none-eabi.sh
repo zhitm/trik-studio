@@ -1,4 +1,6 @@
 #!/usr/bin/bash -x
+
+
 help()
 {
     echo "Usage: download-arm-none-eabi.sh [ -p | --path ] /path/to/dir
