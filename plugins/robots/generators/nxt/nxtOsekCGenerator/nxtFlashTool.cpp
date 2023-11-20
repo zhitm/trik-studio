@@ -224,7 +224,7 @@ bool NxtFlashTool::uploadProgram(const QFileInfo &fileInfo)
 	mSource = fileInfo;
 
 	mCompileProcess.setWorkingDirectory(path());
-	information(path());
+//	information(path());
 
 	switch(QOperatingSystemVersion::currentType()) {
 	default:
@@ -237,9 +237,9 @@ bool NxtFlashTool::uploadProgram(const QFileInfo &fileInfo)
 	}
 		break;
 	case QOperatingSystemVersion::OSType::Unknown: {
-//		const QDir dir(PlatformInfo::invariantSettingsPath("pathToCompiler"));
 
-		auto line = "./compile.sh . " + fileInfo.absolutePath() + " GNUARM_ROOT=/home/maria/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi";
+        auto line = "./compile.sh . " + fileInfo.absolutePath() + " GNUARM_ROOT="+SettingsManager::value("pathToArmNoneEabi").toString();
+
 		information(line);
 		mCompileProcess.start("/bin/bash", {"-c", line});
 	}

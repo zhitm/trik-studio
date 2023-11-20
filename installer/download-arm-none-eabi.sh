@@ -16,10 +16,9 @@ install_arm()
 # wget https://developer.arm.com/-/media/Files/downloads/gnu/13.2.rel1/binrel/arm-gnu-
 # toolchain-13.2.rel1-x86_64-arm-none-eabi.tar.xz
 
-wget https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/13.2.rel1/binrel/arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi.tar.xz
-
-tar -xf arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi.tar.xz -C $PATH_TO_INSTALL
-echo "arm-none-eabi installed at $PATH_TO_INSTALL"
+    wget https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/13.2.rel1/binrel/arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi.tar.xz
+    tar -xf arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi.tar.xz -C "$PATH_TO_INSTALL"
+    echo "arm-none-eabi installed at $PATH_TO_INSTALL"
 }
 
 
