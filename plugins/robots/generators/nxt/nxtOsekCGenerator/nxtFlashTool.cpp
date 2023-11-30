@@ -224,7 +224,7 @@ bool NxtFlashTool::uploadProgram(const QFileInfo &fileInfo)
 	mSource = fileInfo;
 
 	mCompileProcess.setWorkingDirectory(path());
-//	information(path());
+    information(path());
 
 	switch(QOperatingSystemVersion::currentType()) {
 	default:
@@ -233,7 +233,7 @@ bool NxtFlashTool::uploadProgram(const QFileInfo &fileInfo)
 
 		mCompileProcess.start("cmd", { "/c", path("compile.bat")
 									   + " " + fileInfo.completeBaseName()
-									   + " " + fileInfo.absolutePath() + " GNUARM_ROOT="+path()+"/gnuarm/arm-none-eabi"});
+                                       + " " + fileInfo.absolutePath() + " GNUARM_ROOT="+path()+"/gnuarm"});
 	}
 		break;
 	case QOperatingSystemVersion::OSType::Unknown: {
