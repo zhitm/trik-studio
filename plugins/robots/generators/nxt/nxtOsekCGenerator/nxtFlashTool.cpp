@@ -231,9 +231,11 @@ bool NxtFlashTool::uploadProgram(const QFileInfo &fileInfo)
 		break;
 	case QOperatingSystemVersion::OSType::Windows: {
         auto pathToNxtTools = path().replace("\\", "/");
-		mCompileProcess.start("cmd", { "/c", path("compile.bat")
-									   + " " + fileInfo.completeBaseName()
-                                       + " " + fileInfo.absolutePath() + " GNUARM_ROOT="+pathToNxtTools+"gnuarm"});
+        auto line = path("compile.bat")
+                    + " " + fileInfo.completeBaseName()
+                    + " " + fileInfo.absolutePath() + " " + "GNUARM_ROOT='"+pathToNxtTools+"gnuarm'";
+        information(line);
+        mCompileProcess.start("cmd", { "/c", line});
 	}
 		break;
 	case QOperatingSystemVersion::OSType::Unknown: {
