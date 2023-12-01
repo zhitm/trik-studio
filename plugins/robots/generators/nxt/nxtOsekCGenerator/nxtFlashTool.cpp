@@ -233,7 +233,7 @@ bool NxtFlashTool::uploadProgram(const QFileInfo &fileInfo)
         auto pathToNxtTools = path().replace("\\", "/");
         auto line = path("compile.bat")
                     + " " + fileInfo.completeBaseName()
-                    + " " + fileInfo.absolutePath() + " " + pathToNxtTools+"gnuarm'";
+                    + " " + fileInfo.absolutePath() + " " + pathToNxtTools+"gnuarm";
         information(line);
         mCompileProcess.start("cmd", { "/c", line});
 	}
