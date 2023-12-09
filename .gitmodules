@@ -33,5 +33,4 @@
 [submodule "plugins/robots/thirdparty/qextserialport/qextserialport"]
 	path = plugins/robots/thirdparty/qextserialport/qextserialport
 	url = https://github.com/qextserialport/qextserialport
-[submodule "nxt-tools"]
-	url = git@github.com:zhitm/nxt-tools.git
+

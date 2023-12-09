@@ -51,17 +51,7 @@ void dirPicker::restore()
 
 void dirPicker::pick()
 {
-//    QFileInfo info (mPathEditor->text());
-//    QDir d(info.exists() && info.isFile() ? info.absolutePath() : info.absoluteFilePath());
-//    QString openedFileName = utils::QRealFileDialog::getExistingDirectory(
-//        mSettingsKey
-//        , this
-//        , tr("Select directory")
-//        , d.absolutePath());
-
     QDir dirPath=QFileDialog::getExistingDirectory(this, "Get Any File");
     SettingsManager::setValue(mSettingsKey, dirPath.absolutePath());
-//    if (!openedFileName.isEmpty()) {
     mPathEditor->setText(dirPath.absolutePath());
-//    }
 }
